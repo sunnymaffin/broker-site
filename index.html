@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-overlay: rgba(255,255,255,0.8);
+      --bg-overlay: rgba(255,255,255,0.4);
       --text-color: #1A1A1A;
       --accent-color: #000000;
       --input-bg: #f2f2f2;
@@ -38,8 +38,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      background-color: rgba(236,233,221,0.9);
+      padding: 10px 40px;
+      background-color: rgba(236,233,221,1);
       border-bottom: 1px solid #e5e5e5;
     }
 
@@ -77,7 +77,7 @@
       background-color: #ffffff;
       border-radius: 12px;
       border: 2px solid #e0e0e0;
-      padding: 40px 30px;
+      padding: 20px 30px;
       margin-bottom: 50px;
     }
 
@@ -192,15 +192,16 @@
     }
 
     .brand-logos {
-      display: flex;
+      display: inline-flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 5px;
+      gap: 15px;
       align-items: center;
     }
 
     .brand-logos img {
       height: 50px;
+      width: 120px;
       filter: grayscale(100%);
       object-fit: contain;
     }
@@ -228,7 +229,7 @@
 <body>
   <header>
     <div class="logo">
-  <img src="assets/logo.png" alt="Trade Spirits logo" style="height: 50px;">
+  <img src="assets/logo.png" alt="Trade Spirits logo" style="height: 56px;">
   <span style="display:none;">TRADE SPIRITS</span>
     </div>
     <button class="contact-btn" onclick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });">Contact Us</button>
@@ -265,17 +266,16 @@
       </form>
     </div>
 
-    <div class="section brands">
-      <h2>Brands our experts have worked with</h2>
+    <div class="content-block">
+      <h1>Grew together in Russia & CIS</h1>
       <div class="brand-logos">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Jim_Beam_logo.svg/2560px-Jim_Beam_logo.svg.png" alt="Jim Beam">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Maker%27s_Mark_logo.svg/2560px-Maker%27s_Mark_logo.svg.png" alt="Maker's Mark">
-        <img src="https://upload.wikimedia.org/wikipedia/en/2/27/Brugal_logo.png" alt="Brugal">
-        <img src="https://www.ron1888.com/sites/default/files/2020-04/1888_LOGO.png" alt="1888">
-        <img src="https://upload.wikimedia.org/wikipedia/en/0/08/Macallan_logo.svg" alt="The Macallan">
-        <img src="https://upload.wikimedia.org/wikipedia/en/e/ef/Courvoisier_logo.png" alt="Courvoisier">
-        <img src="https://www.samaidistillery.com/wp-content/uploads/2021/05/logo.png" alt="Samai">
-        <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Bowmore_logo.svg" alt="Bowmore">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/Jim_Beam_Logo_2023.svg/1200px-Jim_Beam_Logo_2023.svg.png" alt="Jim Beam">
+        <img src="https://www.makersmark.com/themes/custom/bsi_tokens_theme/bsi_tokens_subtheme/logo.svg" alt="Maker's Mark">
+        <img src="https://www.brugal-rum.com/themes/custom/brugal_v2/images/logos/logo.png" alt="Brugal">
+        <img src="https://www.themacallan.com/Logo.svg" alt="The Macallan">
+        <img src="https://www.courvoisier.com/app/uploads/2024/06/courvoisier-logo-wordmark-red.svg" alt="Courvoisier">
+        <img src="https://londonspiritscompetition.com/cont/company/logosPot/LondonSpiritsCompetition-12042023110144000000-656e05f8dbb67.png" alt="Samai">
+        <img src="https://vida.bg/wp-content/uploads/2020/09/Bowmore-logo.png" alt="Bowmore">
       </div>
     </div>
   </main>
