@@ -279,44 +279,42 @@
   </footer>
 
   <script>
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('status');
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('status');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
 
-      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/i;
-      if (!email || !emailPattern.test(email)) {
-        status.textContent = "Please enter a valid email address.";
-        status.className = "error";
-        return;
-      }
+    const url = "https://script.google.com/macros/s/AKfycbwJlQnDBhxhxZACbjeOtrwLRgapyn_sBrd0SwHpNFFhaML4PReX3wl4lmrGlUzJGFh0/exec"; 
 
-      try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwX-bNqH-nyMdjAXlzgxEQFtDhLsUt3Hw9Y1mDxfAwUyARwjtoTX3SBdEB-LeoRWdan/exec', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message })
-        });
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`
+      });
 
-        const result = await response.json();
-        if (result.status === 'success') {
-          status.textContent = "Thank you! We'll get back to you very soon.";
-          status.className = "success";
-          form.reset();
-        } else {
-          status.textContent = "Something went wrong.";
-          status.className = "error";
-        }
-      } catch (err) {
-        status.textContent = "Connection error. Try again later.";
+      const result = await response.text();
+
+      if (result.includes("success")) {
+        status.textContent = "Thank you! We'll get back to you very soon.";
+        status.className = "success";
+        form.reset();
+      } else {
+        status.textContent = "Something went wrong.";
         status.className = "error";
       }
-    });
-  </script>
+
+    } catch (err) {
+      status.textContent = "Connection error. Try again later.";
+      status.className = "error";
+    }
+  });
+</script>
+
 </body>
 </html>
