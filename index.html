@@ -1,18 +1,23 @@
+
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ваше Брокерское Агентство</title>
+  <title>Trade Spirits | Alcohol Brand Brokerage & Distribution Experts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trade Spirits helps alcohol brands enter Russia and CIS markets. We specialize in spirits distribution, alcohol brand brokerage, and market expansion strategy.">
+  <meta name="keywords" content="alcohol brand distribution, spirits import export, liquor marketing agency, alcohol brokerage, enter Russian market, CIS alcohol partners, whiskey brand representation, spirits logistics, international alcohol sales, premium spirits consultancy">
+  <meta name="author" content="Trade Spirits LLC">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #0F0F0F;
-      --text-color: #FAFAFA;
-      --accent: #FFFFFF;
-      --input-bg: #1A1A1A;
-      --input-border: #333;
-      --font: 'Inter', sans-serif;
+      --bg-overlay: rgba(255,255,255,0.8);
+      --text-color: #1A1A1A;
+      --accent-color: #000000;
+      --input-bg: #f2f2f2;
+      --input-border: #cccccc;
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Inter', sans-serif;
     }
 
     * {
@@ -22,29 +27,102 @@
     }
 
     body {
-      font-family: var(--font);
-      background-color: var(--bg-color);
+      font-family: var(--font-body);
+      background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('https://punchdrink.com/wp-content/uploads/2022/02/Inline1-Best-Spirits-Retailers-America-Bitters-and-Bottles.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: var(--text-color);
-      line-height: 1.5;
-      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(255,255,255,0.9);
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-family: var(--font-heading);
+      color: var(--accent-color);
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    .contact-btn {
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #333;
     }
 
     .container {
-      max-width: 720px;
+      max-width: 900px;
       margin: 0 auto;
-      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .content-block {
+      background-color: #ffffff;
+      border-radius: 12px;
+      border: 2px solid #e0e0e0;
+      padding: 40px 30px;
+      margin-bottom: 50px;
     }
 
     h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
+      font-size: 2.5rem;
+      font-weight: 700;
       margin-bottom: 20px;
+      text-align: center;
+      font-family: var(--font-heading);
     }
 
-    p {
-      font-size: 1.2rem;
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 40px 0 20px;
+      font-family: var(--font-heading);
+      color: var(--accent-color);
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
       margin-bottom: 40px;
-      color: #B0B0B0;
+      color: #333;
+      text-align: center;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .feature img {
+      width: 28px;
+      height: 28px;
+      margin-right: 16px;
+      filter: grayscale(100%);
+      flex-shrink: 0;
+    }
+
+    .feature p {
+      color: #111;
+      font-size: 1rem;
+      margin: 0;
     }
 
     form {
@@ -66,13 +144,13 @@
     }
 
     input:focus, textarea:focus {
-      border-color: var(--accent);
+      border-color: var(--accent-color);
     }
 
     button {
       padding: 14px;
-      background-color: var(--accent);
-      color: var(--bg-color);
+      background-color: var(--accent-color);
+      color: #fff;
       font-size: 1rem;
       font-weight: 600;
       border: none;
@@ -82,45 +160,120 @@
     }
 
     button:hover {
-      background-color: #e6e6e6;
+      background-color: #333;
     }
 
     #status {
       margin-top: 16px;
       font-size: 0.95rem;
+      font-weight: 500;
     }
 
     .success {
-      color: #90ee90;
+      color: #28a745;
     }
 
     .error {
-      color: #ff7b7b;
+      color: #dc3545;
+    }
+
+    .brands {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .brands h2 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--accent-color);
+      margin-bottom: 30px;
+    }
+
+    .brand-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .brand-logos img {
+      height: 40px;
+      filter: grayscale(100%);
+      object-fit: contain;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #444;
+      background-color: rgba(255,255,255,0.9);
+      border-top: 1px solid #e5e5e5;
     }
 
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
       }
-      p {
-        font-size: 1rem;
+      .feature {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Брокерское агентство</h1>
-    <p>Помогаем клиентам по всему миру находить надёжных партнёров и заключать сделки</p>
+  <header>
+    <div class="logo">Trade Spirits</div>
+    <button class="contact-btn" onclick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });">Contact Us</button>
+  </header>
 
-    <form id="contact-form">
-      <input type="text" id="name" name="name" placeholder="Ваше имя" required />
-      <input type="email" id="email" name="email" placeholder="Ваш email" required />
-      <textarea id="message" name="message" rows="4" placeholder="Ваше сообщение" required></textarea>
-      <button type="submit">Отправить</button>
-      <p id="status"></p>
-    </form>
-  </div>
+  <main class="container">
+    <div class="content-block">
+      <h1>We connect brands with markets</h1>
+      <p class="subtitle">Open access to the growing markets of Russia and the CIS for your business</p>
+
+      <div class="feature"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt=""><p>Qualified market entry for your brand into Russia and CIS markets</p></div>
+      <div class="feature"><img src="https://cdn-icons-png.flaticon.com/512/1087/1087926.png" alt=""><p>A team of professionals with over 30 years of combined experience in sales, marketing, and retail</p></div>
+      <div class="feature"><img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt=""><p>We work as an exclusive representative or broker for your brand and production</p></div>
+      <div class="feature"><img src="https://cdn-icons-png.flaticon.com/512/1792/1792935.png" alt=""><p>Logistics, pricing strategy, demand estimation, and marketing cost calculations</p></div>
+      <div class="feature"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt=""><p>Market data reports (growth, demand, category insights)</p></div>
+      <div class="feature"><img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt=""><p>Consumer behavior trends</p></div>
+      <div class="feature"><img src="https://cdn-icons-png.flaticon.com/512/2202/2202112.png" alt=""><p>Ambassador and expert scouting, strategy development and execution</p></div>
+      <div class="feature"><img src="https://cdn-icons-png.flaticon.com/512/484/484662.png" alt=""><p>We work on commission or a fixed fee</p></div>
+    </div>
+
+    <h2>Tell us more about your business and request</h2>
+
+    <div class="section">
+      <form id="contact-form">
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+        <input type="email" id="email" name="email" placeholder="Your email" required />
+        <textarea id="message" name="message" rows="4" placeholder="Your message" required></textarea>
+        <button type="submit">Send</button>
+        <p id="status"></p>
+      </form>
+    </div>
+
+    <div class="section brands">
+      <h2>Brands our experts have worked with</h2>
+      <div class="brand-logos">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Jim_Beam_logo.svg/2560px-Jim_Beam_logo.svg.png" alt="Jim Beam">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Maker%27s_Mark_logo.svg/2560px-Maker%27s_Mark_logo.svg.png" alt="Maker's Mark">
+        <img src="https://upload.wikimedia.org/wikipedia/en/2/27/Brugal_logo.png" alt="Brugal">
+        <img src="https://www.ron1888.com/sites/default/files/2020-04/1888_LOGO.png" alt="1888">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/08/Macallan_logo.svg" alt="The Macallan">
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/ef/Courvoisier_logo.png" alt="Courvoisier">
+        <img src="https://www.samaidistillery.com/wp-content/uploads/2021/05/logo.png" alt="Samai">
+        <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Bowmore_logo.svg" alt="Bowmore">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Trade Spirits (c) 2025, LLC
+  </footer>
 
   <script>
     const form = document.getElementById('contact-form');
@@ -135,13 +288,13 @@
 
       const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/i;
       if (!email || !emailPattern.test(email)) {
-        status.textContent = "Введите корректный email.";
+        status.textContent = "Please enter a valid email address.";
         status.className = "error";
         return;
       }
 
       try {
-        const response = await fetch('YOUR_GOOGLE_SCRIPT_URL', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbw1ZHSPcvrhMmenBC9RdcH7X9MUs4YSwVa15Yk-Ut1S0T_RK0x1oqvZw0zzppbwsuPs/exec', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, message })
@@ -149,15 +302,15 @@
 
         const result = await response.json();
         if (result.status === 'success') {
-          status.textContent = "Сообщение отправлено!";
+          status.textContent = "Thank you! We'll get back to you very soon.";
           status.className = "success";
           form.reset();
         } else {
-          status.textContent = "Ошибка при отправке.";
+          status.textContent = "Something went wrong.";
           status.className = "error";
         }
       } catch (err) {
-        status.textContent = "Проблема с соединением.";
+        status.textContent = "Connection error. Try again later.";
         status.className = "error";
       }
     });
