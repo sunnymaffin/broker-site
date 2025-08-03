@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ваше Брокерское Агентство</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0F0F0F;
+      --text-color: #FAFAFA;
+      --accent: #FFFFFF;
+      --input-bg: #1A1A1A;
+      --input-border: #333;
+      --font: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #B0B0B0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+
+    input, textarea {
+      background-color: var(--input-bg);
+      border: 1px solid var(--input-border);
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 8px;
+      color: var(--text-color);
+      outline: none;
+      transition: border 0.2s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    button {
+      padding: 14px;
+      background-color: var(--accent);
+      color: var(--bg-color);
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e6e6e6;
+    }
+
+    #status {
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+
+    .success {
+      color: #90ee90;
+    }
+
+    .error {
+      color: #ff7b7b;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Брокерское агентство</h1>
+    <p>Помогаем клиентам по всему миру находить надёжных партнёров и заключать сделки</p>
+
+    <form id="contact-form">
+      <input type="text" id="name" name="name" placeholder="Ваше имя" required />
+      <input type="email" id="email" name="email" placeholder="Ваш email" required />
+      <textarea id="message" name="message" rows="4" placeholder="Ваше сообщение" required></textarea>
+      <button type="submit">Отправить</button>
+      <p id="status"></p>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/i;
+      if (!email || !emailPattern.test(email)) {
+        status.textContent = "Введите корректный email.";
+        status.className = "error";
+        return;
+      }
+
+      try {
+        const response = await fetch('YOUR_GOOGLE_SCRIPT_URL', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        const result = await response.json();
+        if (result.status === 'success') {
+          status.textContent = "Сообщение отправлено!";
+          status.className = "success";
+          form.reset();
+        } else {
+          status.textContent = "Ошибка при отправке.";
+          status.className = "error";
+        }
+      } catch (err) {
+        status.textContent = "Проблема с соединением.";
+        status.className = "error";
+      }
+    });
+  </script>
+</body>
+</html>
