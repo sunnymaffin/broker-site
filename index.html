@@ -288,7 +288,14 @@
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
-
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      status.textContent = "Please enter a valid email address.";
+      status.className = "error";
+      return;
+    }
+    
     const url = "https://script.google.com/macros/s/AKfycbwJlQnDBhxhxZACbjeOtrwLRgapyn_sBrd0SwHpNFFhaML4PReX3wl4lmrGlUzJGFh0/exec"; 
 
     try {
